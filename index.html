@@ -3,90 +3,115 @@
 
   <head>
     <meta charset="UTF-8">
-    <title>Todoアプリ(Vuetify)</title>
+    <title>Task1_RikuB</title>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/vuetify@3.6.11/dist/vuetify.min.css'>
 <link rel='stylesheet' href='https://unpkg.com/@mdi/font@6.x/css/materialdesignicons.min.css'>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900'>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css'>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.13/css/all.css'>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'><link rel="stylesheet" href="./style.css">
 
   </head>
     
   <body>
-  <!-- Vueで指定された"app"要素、この中でのみVueが有効 -->
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
 <div id="app">
   <v-app>
     <v-main>
-      <v-container>
-        <v-row
-          class="text-h3 mb-3 mt-3"
-          justify="center"
-        >
-          My ToDo App
+      <v-container fluid class="bg-black container">
+        <v-row class="text pl-3 ">
+          <div class="text" id="Address"></div><p>　(１時間更新)</p>
+          <v-spacer></v-spacer>
+          <v-icon icon="mdi-menu"></v-icon>
         </v-row>
-
-        <v-row
-          class="mb-3 mt-3"
-          align="center"
-          justify="center"
-        >
-          <v-col cols="6">
-            <v-text-field
-              class="ml-6 mr-6"
-              v-model="task"
-              label="タスクを入力"
-              placeholder="タスクを入力…"
-              variant="outlined"
-            ></v-text-field>
+        <v-row class=""> <!--all-row-->
+          <v-col cols="12" md="6" lg="6" xl="3" class="pa-0 ma-0 "> <!--left-space-->
+            <v-row> <!--class="left-upper-row"-->
+              <v-col> <!--class="left-upper-col"-->
+                <v-row class="pa-0 ma-0"> <!--左上の一番上-->
+                  <v-col class="text"> <!--class="left-upper-1"-->
+                  <p class="d-title">{{ appName }}</p>
+                  <p class="d-line-1">{{ clock }}</p>
+                  </v-col>
+                </v-row>
+                <v-row class="pa-0 ma-0 eathercontainer  "> <!--左上の真ん中-->
+                  <v-col class="pt-1 "> <!--class="left-upper-2"-->
+                    <p class="text">今日の天気</p>
+                    <div id="weathercontainer1" class="weathercontainer1 weathercontainer pb-5"></div>
+                  </v-col>
+                  <v-col class="pt-1 "><!--class="left-upper-3"-->
+                    <p class="text">明日の天気</p>
+                    <div id="weathercontainer2" class="weathercontainer2 weathercontainer pb-5"></div>
+                  </v-col>
+                  <v-col></v-col>
+                  <v-col></v-col>
+                </v-row>
+                <v-row class="pt-1 ma-0 "> <!--左上の一番下-->
+                  <p class="text pl-2">一週間の天気</p><br>
+                </v-row>
+                <v-row class="d-flex align-stretch ma-0 "> <!--class="left-upper-4" 消してもいいかも　--> 
+                    <v-col>
+                      <div id="weathercontainer3" class="weathercontainer "></div>
+                    </v-col>
+                    <v-col>
+                      <div id="weathercontainer4" class="weathercontainer "></div>
+                    </v-col>
+                    <v-col>
+                      <div id="weathercontainer5" class="weathercontainer "></div>
+                    </v-col>
+                    <v-col>
+                      <div id="weathercontainer6" class="weathercontainer "></div>
+                    </v-col>
+                    <v-col>
+                      <div id="weathercontainer7" class="weathercontainer "></div>
+                    </v-col>
+                </v-row>
+              </v-col>
+            </v-row>
+            <v-row class="d-flex align-end pa-0 ma-0 "> <!--class="felt-lower-row"-->
+              <v-col class="pa-0 mt-5 "><!--class="felt-lower-col"　左下画像　-->
+                <p class="source text">天気データ提供：<a href="https://open-meteo.com" target="_blank" rel="noopener noreferrer" class="text">Open-Meteo</a></p>
+              </v-col>
+            </v-row>    
+          </v-col>
+          <v-col cols="12" md="6" lg="6" class="d-flex align-stretch gap-1" > <!--class="right-space"-->
+            
+            <img class=photo src="https://picsum.photos/400/400?random=1">
+            <div style=font-size:10px;>　</div>
+            <img class=photo src="https://picsum.photos/400?random=2">
+            <div style=font-size:10px;>　</div>
+            <img class=photo src="https://picsum.photos/400?random=3">
+            <div style=font-size:10px;>　</div>
+            <img class=photo src="https://picsum.photos/400?random=4">
+            <div style=font-size:10px;>　</div>
+            <img class=photo src="https://picsum.photos/400?random=5">
+            <div style=font-size:10px;>　</div>
+            <img class=photo src="https://picsum.photos/400?random=6">
+            <div style=font-size:10px;>　</div>
+            <img class=photo src="https://picsum.photos/400?random=7">
+            <div style=font-size:10px;>　</div>
+            <img class=photo src="https://picsum.photos/400?random=8">
+            <div style=font-size:10px;>　</div>
+            <img class=photo src="https://picsum.photos/400?random=9">
+            
+            <v-row> <!--class="right-row"-->
+              <!--<div class="bg-light-green" style="height: 150px; width: 150px;"></div>-->
+            </v-row>
           </v-col>
         </v-row>
-
-        <v-row cols="3"
-          class="mb-3 mt-3"
-          align="center"
-          justify="center"
-        >
-          タスク内容：{{ task }}
-
-          <v-btn
-            class="ml-3"
-            color="indigo"
-            size="small"
-            rounded="pill"
-            @click="addTask"
-          >
-            <v-icon icon="mdi-plus" class="mr-1"></v-icon>
-            追加
-          </v-btn>
-          
-                    <v-btn
-            rounded
-            variant="tonal"
-            @click="clearAll"
-          >
-            全てのToDoをクリア
-          </v-btn>
-        </v-row>
-
-        <v-row
-          class="mb-3 mt-3"
-          justify="center"
-        >
-
-        </v-row>
-
-        <v-row
-          class="mb-3 mt-3"
-          justify="center"
-          v-for="(todo, i) in todoList"
-          :key="i"
-        >
-          {{ todo }}
+        <v-row>
+          <!--<img src="https://picsum.photos/seed/picsum/400/300">-->
         </v-row>
       </v-container>
     </v-main>
   </v-app>
 </div>
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
-<script src='https://cdn.jsdelivr.net/npm/vuetify@3.6.11/dist/vuetify.min.js'></script><script  src="./script.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/vuetify@3.6.11/dist/vuetify.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.1/axios.min.js'></script><script  src="./script.js"></script>
 
   </body>
   

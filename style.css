@@ -1,0 +1,14 @@
+.text {
+  font-family: Yu Mincho;
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+.weathercontainer {
+  color: whitesmoke;
+  font-size: 15px;
+}
+
+.source {
+  font-size: 10px;
+}
